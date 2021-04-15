@@ -1,0 +1,657 @@
+///////////////////////////////
+// ICONS    
+.header {
+    &__logo {
+        height: 3.5rem;
+        margin-left: 2rem;
+    }
+}
+
+
+
+///////////////////////////////
+// SEARCH
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+
+    @include respond(tab-port) {
+        order: 1;
+        width: 100%;
+    }
+
+    &__input {
+        padding: 1rem 2rem;
+        border-radius: 100px;
+        width: 90%;
+        outline: none;
+        border: none;
+        background-color: $color-grey-light-2;
+        transition: all .3s;
+        font-weight: 300;
+        color: $color-grey-dark-2;
+        font-size: 1.6rem;
+
+        @include respond(tab-port) {
+            width: 100%;
+            border-radius: 0;
+        }
+
+        &:focus {
+            outline: none;
+            border: none;
+            width: 100%;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-light-4;
+            font-family: inherit;
+            font-size: 1.6rem;
+            font-weight: 300;
+        }
+    }
+
+    &__button {
+        background: none;
+        outline: none;
+        border: none;
+
+        &:focus {
+            outline: none;
+            border: none;
+        }
+    }
+
+    &__icon {
+        height: 1.75rem;
+        width: 1.75rem;
+        margin-left: -3.5rem;
+        fill: $color-grey-dark-3;
+    }
+}
+
+.nav__user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+
+    @include respond(tab-port) {
+        height: auto;
+    }
+
+    & > * {
+        padding: 0 2rem;
+        transition: all .3s;
+    }
+
+    &>*:hover {
+        background-color: $color-grey-light-2;
+    }
+
+    &--icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: currentColor;
+    }
+
+    &--img {
+        height: 3.75rem;
+        width: 3.75rem;
+        border-radius: 50%;
+    }
+
+    &-personal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        color: $color-grey-dark-2;
+        height: 100%;
+    }
+
+    &-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        position: relative;
+    }
+
+    &--notification {
+        font-size: .8rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        color: #fff;
+        background-color: $color-primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 1.3rem;
+        right: 1.3rem;
+
+        @include respond(tab-port) {
+            top: -.5rem;
+            right: 1.5rem;
+        }
+        
+    }
+
+    &--name {
+        margin-left: 1rem;
+        font-family: inherit;
+    }    
+}
+
+
+
+////////////////////////////////////
+// SIDEBAR
+.sidebar {
+    &__list {
+        list-style: none;
+        margin-top: 3rem;
+
+        @include respond(tab-port) {
+            display: flex;
+            margin: 0;
+        }
+
+        @media only screen and (max-width: 28.125em) {
+            max-width: 100%;
+        }
+    }
+
+    &__item {
+        margin-bottom: .5rem;
+        position: relative;
+
+        @include respond(tab-port) {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        &::before {
+            content: "";
+            width: 3px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $color-primary;
+            transform: scaleY(0);
+            transition: transform .2s, 
+                        width .4s cubic-bezier(1, 0, 0, 1) .2s;
+        }
+
+        &:hover::before {
+            transform: scaleY(1);
+            width: 100%;
+        }
+    }
+
+    &__active {
+        position: relative;
+        background-color: $color-primary;
+    }
+
+    &__link {
+        &:active {
+            background-color: $color-primary-light;
+        }
+
+        &:link, 
+        &:visited {
+            position: relative;
+            z-index: 10;
+            text-decoration: none;
+            font-family: inherit;
+            color: #fff;
+            padding: 1.5rem 3rem;
+            display: flex;
+            align-items: center;
+
+            @include respond(tab-port) {
+                padding: 1rem 2rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        
+    }
+
+    &__icon {
+        height: 1.75rem;
+        width: 1.75rem;
+        fill: currentColor;
+    }
+
+    &__name {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        margin-left: 2.5rem;
+
+        @include respond(tab-port) {
+            margin: .5rem;
+        }
+    }
+
+    &__copyright {
+        font-size: 1.4rem;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-weight: 300;
+        padding: 1.5rem 2rem;
+
+        @include respond(tab-port) {
+            display: none;
+        }
+    }
+}
+
+
+/////////////////////////////////////
+// GALARY
+.gallery {
+    display: flex;
+    border-bottom: $line;
+
+    &__picture {
+        width: 100%;
+        display: block;
+        transition: all .2s;
+    }
+
+    &__box  {
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__caption {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translate(-50%, -50%) scale(.25);
+        color: #fff;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        transition: all .3s;
+        opacity: 0;
+    }
+
+    &__box:hover &__caption {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    &__box:hover &__picture {
+        filter: blur(2px) brightness(50%);
+    }
+
+}
+
+
+
+
+/////////////////////////////////////
+// HOTEL OVERVIEW
+.hotel {
+    display: flex;
+    align-items: center;
+    border-bottom: $line;
+
+    & > * {
+        @include respond(tab-port) {
+            flex: 1;
+        }
+    }
+
+    &__name {
+        font-size: 2.5rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        padding: 0 2.5rem;
+        display: flex;
+        align-self: stretch;
+        align-items: center;
+        text-align: center;
+
+        @include respond(tab-port) {
+            padding: 0 1rem;
+
+        }
+        
+    }
+
+    &__stars {
+        margin-right: auto;
+        display: flex;
+        color: $color-primary;
+
+        @include respond(tab-port) {
+            margin: 0;
+        }
+    }
+
+    &__icon--star, 
+    &__icon--location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: currentColor;
+    }
+
+    &__location {
+        color: $color-primary;
+        padding: 0 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    
+
+    &__rating {
+        background-color: $color-primary;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 1.5rem;
+    }
+
+    &__rating--main {
+        font-size: 2.5rem;
+        font-weight: 300;
+    }
+
+    &__rating--votes  {
+        font-size: 1.3rem;
+
+    }
+}
+
+//////////////////////////////////
+// BUTTON INLINE
+.btn-inline {
+    display: flex;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    margin-left: .5rem;
+    cursor: pointer;
+
+    & span {
+        margin-left: 4px;
+        transition: all .2s;
+    }
+
+    &:hover span {
+        margin-left: 8.5px;
+    }
+
+    &:focus {
+        border: none;
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+
+    &:hover {
+        color: $color-grey-dark-2;
+    }
+
+}
+
+/////////////////////////////////////
+// KEYFRAMES
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 3rem rgba(0,0,0, .2);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+/////////////////////////////////
+//  PARAGRAPH
+.paragraph {
+    &:not(:last-of-type) {
+        margin-bottom: 3rem;
+    }
+}
+
+
+/////////////////////////////////
+//  DESCRIPTION
+
+.description {
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 3rem 0;
+        border-top: $line;
+        border-bottom: $line;
+        margin: 3rem 0;
+
+    }
+
+    &__item {
+        flex: 0 0 50%;
+        margin-bottom: 1rem;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            background-color: $color-primary;
+            -webkit-mask-size: cover;
+            -webkit-mask-image: url("../img/chevron-thin-right.svg");
+            margin-right: .5rem;
+        }
+    }
+}
+
+/////////////////////////////////
+//  RECOMMEND
+
+.recommend {
+    display: flex;
+    align-items: center;
+
+    &__paragraph {
+        margin-right: auto;
+        font-size: 1.2rem;
+        color: $color-grey-dark-3;
+    }
+
+    &__image--box {
+        display: flex;
+    }
+
+    &__image {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-sizing: content-box;
+        
+        &:not(:last-child) {
+            margin-right: -1.5rem;
+        }
+    }
+}
+
+
+/////////////////////////////////
+//  REVIEW
+.review {
+    background-color: #fff;
+    padding: 3rem 3rem;
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+    color: $color-grey-dark-2; 
+    position: relative;
+    overflow: hidden;
+
+    @include respond(tab-port) {
+        margin: 1.5rem 0;
+    }
+
+    @include respond(tab-port) {
+        padding: 1.5rem;           
+    }
+
+    &__text {
+        position: relative;
+        z-index: 10;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+
+        & > * {
+            display: inline-block;
+        }
+
+        &--image {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        &--info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 1rem;
+            margin-right: auto;
+        }   
+
+        &--name {
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        &--date {
+            font-size: 1rem;
+        }
+
+        &--rating {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: $color-primary;
+        }
+    }
+
+    &::before {
+        content: "\201C";
+        font-size: 20rem;
+        color: $color-grey-light-3;
+        font-family: sans-serif;
+        position: absolute;
+        top: -4rem;
+        left: -.7rem;
+        z-index: 1;
+    }
+}
+
+
+//////////////////////////////////
+// CALL TO ACTION
+.cta {
+    margin-bottom: 3rem;
+    border-top: $line;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem 0;
+
+    @include respond(tab-port) {
+        padding: 1.5rem 0;           
+    }
+
+    &__text {
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        margin-bottom: 3rem;
+        text-align: center;
+
+        @include respond(tab-port) {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+
+//////////////////////////////////
+// BUTTON FOR CALL TO ACTION
+.btn {
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    & > * {
+        transition: all .2s;
+    }
+
+    &__visible {
+        padding: 3rem 7.5rem;
+        display: inline-block;
+    }
+
+    &__invisible {
+        position: absolute;
+        padding: 3rem 0;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+        top: -100%;
+    }
+
+    &:hover &__invisible {
+        top: 0;
+    }
+
+    &:hover &__visible {
+        transform: translateY(100%);
+    }
+
+    &:hover {
+        background-image: linear-gradient(to left, $color-primary-light, $color-primary-dark);
+    }
+}

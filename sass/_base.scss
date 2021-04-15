@@ -1,0 +1,26 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    // background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // height: 100%;
+    // background-position: center;
+    // box-sizing: border-box;
+    // overflow: auto;
+
+    background-color: $color-primary-light;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    color: $color-grey-dark-2;
+
+}

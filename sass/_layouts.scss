@@ -1,0 +1,111 @@
+///////////////////////////////
+// CONTAINER
+.container {
+    width: 120rem;
+    background: #fff;
+    margin: 8rem auto;
+    box-shadow: 1.5rem 2rem 4rem rgba(0, 0, 0, .2);
+
+    @include respond(tab-land) {
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+////////////////////////////////
+// HEADER
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7rem;
+    border-bottom: 1px solid $color-grey-light-2;
+
+    @include respond(tab-port) {
+        flex-wrap: wrap;
+        height: 11rem;
+    }
+}
+
+
+////////////////////////////////
+//CONTENT
+.content {
+    display: flex;
+
+    @include respond(tab-port) {
+        display: block;
+    }
+}
+
+
+
+////////////////////////////////
+// NAVIGATION
+.sidebar {
+    background-color: $color-grey-dark-1;
+    display: flex;
+    flex: 0 0 18%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+
+////////////////////////////////
+// MAIN-CONTENT
+.main {
+    flex-grow: 1;
+    background-color: #fff;
+}
+
+
+////////////////////////////////
+// DETAILS
+.details {
+    background-color: $color-grey-light-2;
+    display: flex;
+    padding: 4rem;
+    font-size: 1.4rem;
+
+    @include respond(tab-port) {
+        padding: 2rem;       
+        flex-direction: column;  
+        align-items: center;  
+    }
+}
+
+
+
+
+////////////////////////////////
+// DESCRIPTIONS
+
+.description {
+    flex: 0 0 60%;
+    margin-right: 4rem;
+    background-color: #fff;
+    padding: 3rem 3rem;
+    box-shadow: $shadow;
+
+    @include respond(tab-port) {
+        padding: 1.5rem;    
+        margin: 1.5rem 0;       
+    }
+}
+
+
+////////////////////////////////
+// REVIEWS
+.user-review {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    color: $color-primary;
+    font-size: 1.6rem;
+}
